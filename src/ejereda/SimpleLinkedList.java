@@ -33,17 +33,60 @@ public class SimpleLinkedList<T> implements ListADT<T> {
 	public T removeLast() {
 	//Elimina el �ltimo elemento de la lista
 		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-
+		 if (isEmpty())
+		        return null;
+		 if(count==1)
+			 {
+			 first=null;
+			 last=null;
+			 count--;
+			 return null;
+			 }
+		 Node<T> anterior=first;
+		 Node<T> result = first.next; 
+		while(result.next!=null)
+			{
+			anterior=result;
+			result=result.next;		
+			}
+		last=anterior;
+		last.next=null;
+		count--;
+		return last.data;
+//coste:O(n)
     }
 
 
 	public T remove(T elem) {
 	//Elimina un elemento concreto de la lista
-
-	
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
-
-};
+		if (isEmpty())
+	          return null;
+		boolean enc=false;
+		Node<T> anterior=first;
+		 Node<T> current = first.next;
+		 if(first.data==elem)
+			 this.removeFirst();
+		 if(last.data==elem)
+			 this.removeLast();
+		 while(current != null && !enc)
+			{
+			if(elem.equals (current.data))
+				{
+				enc=true;
+				anterior.next=current.next;
+				count--;
+				}
+			else{
+				anterior=current;
+				current=current.next;
+				}
+		 }
+		 if(enc)
+			 return current.data;
+		 else
+			 return null;
+		 //coste: O(n);
+}
 
 	public T first() {
 	//Da acceso al primer elemento de la lista
@@ -77,8 +120,23 @@ public class SimpleLinkedList<T> implements ListADT<T> {
 
 	public T find(T elem) {
 	//Determina si la lista contiene un elemento concreto, y develve su referencia, null en caso de que no est�
-
-			// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
+		if (isEmpty())
+	          return null;
+		boolean enc=false;
+		 Node<T> current = first.next;
+		while(!enc)
+		{
+		if(elem.equals (current.data))
+			enc=true;
+		else{
+			current = current.next;
+			}
+	 }
+	 if(enc)
+		 return current.data;
+	 else
+		 return null;
+//Coste O(n);
 
 	}
 
