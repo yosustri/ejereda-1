@@ -149,10 +149,10 @@ public class SimpleLinkedList<T> implements ListADT<T> {
 	{ return count;};
 	
 	/** Return an iterator to the stack that iterates through the items . */ 
-	   public Iterator<T> iterator() { return new ListIterator(); } 
+	   public Iterator<T> iterator() { return new MiListIterator(); } 
 
 	   // an iterator, doesn't implement remove() since it's optional 
-	   private class ListIterator implements Iterator<T> { 
+	   private class MiListIterator implements Iterator<T> { 
 		   private Node<T> current=first;
 		   public boolean hasNext(){return current !=null;}
 		   public void remove(){ throw new UnsupportedOperationException();}
