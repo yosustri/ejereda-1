@@ -32,7 +32,6 @@ public class SimpleLinkedList<T> implements ListADT<T> {
 
 	public T removeLast() {
 	//Elimina el �ltimo elemento de la lista
-		// COMPLETAR EL CODIGO Y CALCULAR EL COSTE
 		 if (isEmpty())
 		        return null;
 		 if(count==1)
@@ -152,7 +151,7 @@ public class SimpleLinkedList<T> implements ListADT<T> {
 	   public Iterator<T> iterator() { return new MiListIterator(); } 
 
 	   // an iterator, doesn't implement remove() since it's optional 
-	   private class MiListIterator implements Iterator<T> { 
+	   private class MiListIterator implements Iterator<T> {
 		   private Node<T> current=first;
 		   public boolean hasNext(){return current !=null;}
 		   public void remove(){ throw new UnsupportedOperationException();}
@@ -162,9 +161,7 @@ public class SimpleLinkedList<T> implements ListADT<T> {
 			   current=current.next;
 			   return item;
 		   }
-		// COMPLETAR EL CODIGO
-
-	   } // private class
+	   } 
 		
 		
 		public void visualizarNodos() {
